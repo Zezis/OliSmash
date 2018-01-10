@@ -10,6 +10,13 @@ javascript:(
 		true - will show only on mouseover */
 		var stealth=true;
 		
+		/*** Opacity *** 0-1*/
+		var opacity=1;
+		
+		/*** Width, Height ***/
+		var width=350;
+		var height=250;
+		
 		var paths = [];
 		paths["local_core"]="file:///C:/Users/zezul/Dropbox/MOje/Projects/OliSmash/OliSmash-Core.js";
 		paths["local_style"]="file:///C:/Users/zezul/Dropbox/MOje/Projects/OliSmash/OliSmash-Style.css";
@@ -30,7 +37,7 @@ javascript:(
 
 		var script = document.createElement("script");
 		script.onload= function () {
-			smasher_init(stealth);
+			smasher_init(stealth,opacity,width,height);
 		};
 		script.setAttribute("src", core_path);
 		document.head.appendChild(script);
