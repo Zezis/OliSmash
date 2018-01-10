@@ -1,18 +1,18 @@
 <h1>Welcome to OliSmash</h1>
-<p>smash the Oli !!!</p>
+<p>and smash the Oli !!!</p>
 
+<pre>
 
-<a href="javascript:(
+javascript:(
 	function(){
 		/*** Specify Version ***
 		local - local files
 		test - Testing branch on bitbucket
 		release - release branch on bitbucket */
-		var version="test";
+		var version="release";
 		
 		/*** STEALT MODE ***
-		true - will show only on mouseover
-		*/
+		true - will show only on mouseover */
 		var stealth=true;
 		
 		var paths = [];
@@ -40,5 +40,5 @@
 		script.setAttribute("src", core_path);
 		document.head.appendChild(script);
 	}
-)();">Smasher</a>
-
+)();
+</pre>
