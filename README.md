@@ -1,8 +1,7 @@
 <h1>Welcome to OliSmash</h1>
-<p>and smash the Oli !!!</p>
+<p>copy this script to URL of bookmark and smash the Oli !!!</p>
 
 <pre>
-
 javascript:(
 	function(){
 		/*** Specify Version ***
