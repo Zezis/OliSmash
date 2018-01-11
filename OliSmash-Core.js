@@ -1,3 +1,24 @@
+function openTab(evt, tabName) {
+    // Declare all variables
+    var i, tabcontent, tablinks;
+
+    // Get all elements with class="tabcontent" and hide them
+    tabcontent = document.getElementsByClassName("tabcontent");
+    for (i = 0; i < tabcontent.length; i++) {
+        tabcontent[i].style.display = "none";
+    }
+
+    // Get all elements with class="tablinks" and remove the class "active"
+	tablinks = document.getElementsByClassName("tablinks");
+    for (i = 0; i < tablinks.length; i++) {
+        tablinks[i].className = tablinks[i].className.replace(" active", "");
+    }
+
+    // Show the current tab, and add an "active" class to the button that opened the tab
+    document.getElementById(tabName).style.display = "block";
+    evt.currentTarget.className += " active";
+}
+
 function dragElement(elmnt) {
 	var pos1 = 0, pos2 = 0, pos3 = 0, pos4 = 0;
 	if (document.getElementById(elmnt.id + "header")) {
@@ -34,11 +55,13 @@ function moseOverShow(){
 	container.onmouseover = function(){
 		txtarea.style.visibility = "visible";
 		header.style.visibility = "visible";
+		///tabbarHTML.style.visibility = "visible";
 	};
 
 	container.onmouseout = function(){
 		txtarea.style.visibility = "hidden";
 		header.style.visibility = "hidden";
+		//tabbarHTML.style.visibility = "hidden";
 	};	
 }
 
@@ -47,6 +70,8 @@ function smasher_init(stealth, opacity, width, height){
 	document.getElementById(("smash_div")).style.opacity=opacity;
 	document.getElementById(("smash_div_textarea")).style.width=width;
 	document.getElementById(("smash_div_textarea")).style.height=height;
+	
+	document.getElementById("defaultOpen").click();
 }
 
 function getCookie(cname) {
@@ -85,6 +110,19 @@ header.setAttribute("id", "smash_divheader");
 header.innerHTML="OliSmash !!!";
 container.appendChild(header);	
 
+
+// TAB bar
+var tabbarHTML = 
+'<div id="smash_div_tabbar" class="tab"> \
+	<button class="tablinks" id="defaultOpen" onclick="openTab(event, \'London\')">London</button> \
+	<button class="tablinks" onclick="openTab(event, \'smash_div_textarea\')">smash_div_textarea</button> \
+	<button class="tablinks" onclick="openTab(event, \'Tokyo\')">Tokyo</button> \
+</div>';
+
+container.innerHTML = container.innerHTML+ tabbarHTML;
+
+
+
 // Textarea
 /*var txtarea = doc.createElement("textarea");
 txtarea.setAttribute("id", "smash_div_textarea");
@@ -95,6 +133,7 @@ container.appendChild(txtarea);*/
 // Iframe
 var txtarea = doc.createElement("iframe");
 txtarea.setAttribute("id", "smash_div_textarea");
+txtarea.setAttribute("class", "tabcontent");
 txtarea.setAttribute("src", "https://bb.githack.com/zezis/olivasmash/raw/Testing/chat-iframe.html");
 container.appendChild(txtarea);
 
