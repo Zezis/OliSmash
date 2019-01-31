@@ -48,6 +48,7 @@ var TabManager = (function () {
 ;
 var OliSmash = (function () {
     function OliSmash(opts, tabs) {
+        var _this = this;
         this.options = { stealth: true, height: 250, width: 250, opacity: 1 };
         if (opts) {
             if (opts.height)
@@ -62,6 +63,9 @@ var OliSmash = (function () {
         this.createBody();
         this.tabManager = new TabManager(this.linkDiv, this.body);
         this.addTabs(tabs);
+        var exitBtn = $('<button>Close</button>');
+        exitBtn.click(function () { _this.container.remove(); });
+        this.linkDiv.append(exitBtn);
         if (this.options.stealth)
             this.setupMoseOver();
         U.dragElement(this.container, this.header);
@@ -71,14 +75,17 @@ var OliSmash = (function () {
     }
     OliSmash.prototype.createBody = function () {
         this.container = $('<div id="smash_div"></div>');
+        this.container.hide();
         this.container.append(this.header = $('<div id="smash_divheader">OliSmash !!!</div>'));
         this.container.append(this.linkDiv = $('<div id="smash_linkDiv"></div>'));
         this.container.append(this.body = $('<div id="smash_tabcontainer"></div>'));
+        this.hide();
         $("body").append(this.container);
+        this.container.show();
     };
     OliSmash.prototype.addTabs = function (tabs) {
         var _this = this;
-        this.tabManager.addIframeTab("CHAT", "https://cdn.jsdelivr.net/gh/Zezis/OliSmash@test/build/chat-iframe.html");
+        this.tabManager.addIframeTab("CHAT", "https://cdn.jsdelivr.net/gh/Zezis/OliSmash@test/build/chat-iframe2.html");
         if (tabs) {
             tabs.forEach(function (t) {
                 _this.tabManager.addIframeTab(t.name, t.src);
@@ -87,16 +94,19 @@ var OliSmash = (function () {
     };
     OliSmash.prototype.setupMoseOver = function () {
         var _this = this;
-        this.container.mouseover(function () {
-            _this.body.css("visibility", "visible");
-            _this.header.css("visibility", "visible");
-            _this.linkDiv.css("visibility", "visible");
-        });
-        this.container.mouseout(function () {
-            _this.body.css("visibility", "hidden");
-            _this.header.css("visibility", "hidden");
-            _this.linkDiv.css("visibility", "hidden");
-        });
+        this.container.mouseover(function () { _this.show(); });
+        this.container.mouseout(function () { _this.hide(); });
+    };
+    OliSmash.prototype.hide = function () {
+        console.log("hiding");
+        this.body.css("visibility", "hidden");
+        this.header.css("visibility", "hidden");
+        this.linkDiv.css("visibility", "hidden");
+    };
+    OliSmash.prototype.show = function () {
+        this.body.css("visibility", "visible");
+        this.header.css("visibility", "visible");
+        this.linkDiv.css("visibility", "visible");
     };
     return OliSmash;
 }());

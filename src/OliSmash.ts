@@ -4,7 +4,7 @@ javascript:(
 		local - local files
 		test - Testing branch on bitbucket
 		release - release branch on bitbucket */
-		var version="local";
+		var version="test";
 		
 		/*** STEALT MODE ***
 		true - will show only on mouseover */
@@ -18,7 +18,7 @@ javascript:(
 		var height=250;
 		
 		var paths = [];
-		paths["local_core"]="file:///C:/Users/zezul/Dropbox/MOje/Projects/OliSmash/build/OliSmash-Core.js";
+		paths["local_core"]="file:///C:/Users/zezul/Dropbox/MOje/Projects/OliSmash/build/OliSmash-Core2.js";
 		paths["local_style"]="file:///C:/Users/zezul/Dropbox/MOje/Projects/OliSmash/build/OliSmash-Style.css";
 		paths["test_core"]="https://cdn.jsdelivr.net/gh/Zezis/OliSmash@test/build/OliSmash-Core.js";
 		paths["test_style"]="https://cdn.jsdelivr.net/gh/Zezis/OliSmash@test/build/OliSmash-Style.css";
@@ -26,7 +26,7 @@ javascript:(
         paths["release_style"]="https://rawgit.com/Zezis/OliSmash/release/OliSmash-Style.css";
 
         paths["local_jquery"]="file:///C:/Users/zezul/Dropbox/MOje/Projects/OliSmash/build/jquery-3.3.1.min.js";
-        paths["test_jquery"]="https://code.jquery.com/jquery-3.3.1.js";
+         paths["test_jquery"]="https://code.jquery.com/jquery-3.3.1.js";
 
         var tabs:TabEntity[] = [];
         let basePath = "https://cdn.jsdelivr.net/gh/Zezis/OliSmash@test/build/resources/";

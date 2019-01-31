@@ -5,7 +5,7 @@ javascript: (function () {
     var width = 350;
     var height = 250;
     var paths = [];
-    paths["local_core"] = "file:///C:/Users/zezul/Dropbox/MOje/Projects/OliSmash/build/OliSmash-Core2.js";
+    paths["local_core"] = "file:///C:/Users/zezul/Dropbox/MOje/Projects/OliSmash/build/OliSmash-Core.js";
     paths["local_style"] = "file:///C:/Users/zezul/Dropbox/MOje/Projects/OliSmash/build/OliSmash-Style.css";
     paths["test_core"] = "https://cdn.jsdelivr.net/gh/Zezis/OliSmash@test/build/OliSmash-Core.js";
     paths["test_style"] = "https://cdn.jsdelivr.net/gh/Zezis/OliSmash@test/build/OliSmash-Style.css";

@@ -86,6 +86,10 @@ class OliSmash{
         this.tabManager = new TabManager(this.linkDiv,this.body);
         this.addTabs(tabs);
 
+        let exitBtn = $('<button>Close</button>');
+        exitBtn.click(()=>{this.container.remove();});
+        this.linkDiv.append(exitBtn);
+
         
         if(this.options.stealth)this.setupMoseOver();
         U.dragElement(this.container,this.header);
@@ -98,18 +102,20 @@ class OliSmash{
 
     private createBody(){
         this.container = $('<div id="smash_div"></div>');
+        this.container.hide();
         this.container.append(this.header = $('<div id="smash_divheader">OliSmash !!!</div>'));
         this.container.append(this.linkDiv = $('<div id="smash_linkDiv"></div>'));
         this.container.append(this.body =$('<div id="smash_tabcontainer"></div>'));
         
-        
+        this.hide();
         //src="https://bb.githack.com/zezis/olivasmash/raw/Testing/chat-iframe.html"
         //this.container.append(this.body =$('<iframe id="smash_div_textarea" class="tabcontent" src="file:///C:/Users/zezul/Dropbox/MOje/Projects/OliSmash/build/chat-iframe.html">'));
         $("body").append(this.container);
+        this.container.show();        
     }
 
     private addTabs(tabs?:TabEntity[]){
-        this.tabManager.addIframeTab("CHAT","https://cdn.jsdelivr.net/gh/Zezis/OliSmash@test/build/chat-iframe.html");
+        this.tabManager.addIframeTab("CHAT","https://cdn.jsdelivr.net/gh/Zezis/OliSmash@test/build/chat-iframe2.html");
 
         if(tabs){
             tabs.forEach(t=>{
@@ -119,50 +125,19 @@ class OliSmash{
     }
 
     private setupMoseOver(){
-        this.container.mouseover(()=>{
-            this.body.css("visibility","visible");
-            this.header.css("visibility","visible");
-            this.linkDiv.css("visibility","visible");
-        });
-
-        this.container.mouseout(()=>{
-            this.body.css("visibility","hidden");
-            this.header.css("visibility","hidden");
-            this.linkDiv.css("visibility","hidden");
-        });
-
+        this.container.mouseover(()=>{this.show(); });
+        this.container.mouseout(()=>{this.hide();});
     }
 
-
-    
-    
-
+    private hide(){
+        console.log("hiding");
+        this.body.css("visibility","hidden");
+        this.header.css("visibility","hidden");
+        this.linkDiv.css("visibility","hidden");
+    }
+    private show(){
+        this.body.css("visibility","visible");
+        this.header.css("visibility","visible");
+        this.linkDiv.css("visibility","visible");
+    }
 }
-
-
-
-
-
-
-
-
-/* 
-// Container
-var container = doc.createElement("div");
-container.setAttribute("id", "smash_div");
-
-// Header
-var header = doc.createElement("div");
-header.setAttribute("id", "smash_divheader");
-header.innerHTML="OliSmash !!!";
-container.appendChild(header);	
-
-
-
-
-// Iframe
-var txtarea = doc.createElement("iframe");
-txtarea.setAttribute("id", "smash_div_textarea");
-txtarea.setAttribute("class", "tabcontent");
-txtarea.setAttribute("src", "https://bb.githack.com/zezis/olivasmash/raw/Testing/chat-iframe.html");
-container.appendChild(txtarea); */
