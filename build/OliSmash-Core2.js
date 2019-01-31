@@ -85,7 +85,7 @@ var OliSmash = (function () {
     };
     OliSmash.prototype.addTabs = function (tabs) {
         var _this = this;
-        this.tabManager.addIframeTab("CHAT", "https://cdn.jsdelivr.net/gh/Zezis/OliSmash@test/build/chat-iframe2.html");
+        this.tabManager.addIframeTab("CHAT", "https://cdn.jsdelivr.net/gh/Zezis/OliSmash@test/build/chat-iframe3.html");
         if (tabs) {
             tabs.forEach(function (t) {
                 _this.tabManager.addIframeTab(t.name, t.src);

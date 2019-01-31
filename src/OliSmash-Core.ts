@@ -115,7 +115,7 @@ class OliSmash{
     }
 
     private addTabs(tabs?:TabEntity[]){
-        this.tabManager.addIframeTab("CHAT","https://cdn.jsdelivr.net/gh/Zezis/OliSmash@test/build/chat-iframe2.html");
+        this.tabManager.addIframeTab("CHAT","https://cdn.jsdelivr.net/gh/Zezis/OliSmash@test/build/chat-iframe3.html");
 
         if(tabs){
             tabs.forEach(t=>{
