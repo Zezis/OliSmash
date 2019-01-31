@@ -29,8 +29,8 @@ function setupDrag(elmnt:JQuery){
 }
  */
 
- 
 
+console.log("Test");
 
 var container:JQuery = $('<div id="smash_div"></div>');
 container.append($('<div id="smash_divheader">OliSmash !!!</div>'));
