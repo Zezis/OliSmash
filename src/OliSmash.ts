@@ -19,17 +19,22 @@ javascript:(
 		
 		var paths = [];
 		paths["local_core"]="file:///C:/Users/zezul/Dropbox/MOje/Projects/OliSmash/build/OliSmash-Core2.js";
-		paths["local_style"]="file:///C:/Users/zezul/Dropbox/MOje/Projects/OliSmash/build/OliSmash-Style.css";
-		paths["test_core"]="https://cdn.jsdelivr.net/gh/Zezis/OliSmash@test/build/OliSmash-Core.js";
-		paths["test_style"]="https://cdn.jsdelivr.net/gh/Zezis/OliSmash@test/build/OliSmash-Style.css";
+        paths["local_style"]="file:///C:/Users/zezul/Dropbox/MOje/Projects/OliSmash/build/OliSmash-Style.css";
+        
+        let cdnBasePath = "https://raw.githack.com/Zezis/OliSmash/test/build/";
+		paths["test_core"]=cdnBasePath+"OliSmash-Core2.js";
+		paths["test_style"]=cdnBasePath+"OliSmash-Style.css";
 		paths["release_core"]="https://rawgit.com/Zezis/OliSmash/release/OliSmash-Core.js";
         paths["release_style"]="https://rawgit.com/Zezis/OliSmash/release/OliSmash-Style.css";
 
         paths["local_jquery"]="file:///C:/Users/zezul/Dropbox/MOje/Projects/OliSmash/build/jquery-3.3.1.min.js";
-         paths["test_jquery"]="https://code.jquery.com/jquery-3.3.1.js";
+        paths["test_jquery"]="https://code.jquery.com/jquery-3.3.1.js";
 
         var tabs:TabEntity[] = [];
-        let basePath = "https://cdn.jsdelivr.net/gh/Zezis/OliSmash@test/build/resources/";
+        
+        //"https://cdn.jsdelivr.net/gh/Zezis/OliSmash@test/build/resources/";
+        
+        let basePath = cdnBasePath+"resources/";
         if(version == "local") basePath = "file:///C:/Users/zezul/Dropbox/MOje/Projects/OliSmash/build/resources/";
         tabs.push({name:"P1",src:basePath+"1.pdf"});
         tabs.push({name:"P1",src:basePath+"2.pdf"});
