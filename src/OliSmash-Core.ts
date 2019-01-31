@@ -29,6 +29,7 @@ function setupDrag(elmnt:JQuery){
 }
  */
 
+ 
 
 
 var container:JQuery = $('<div id="smash_div"></div>');

@@ -1,5 +1,5 @@
 javascript: (function () {
-    var version = "local";
+    var version = "test";
     var stealth = false;
     var opacity = 1;
     var width = 350;
@@ -7,7 +7,7 @@ javascript: (function () {
     var paths = [];
     paths["local_core"] = "file:///C:/Users/zezul/Dropbox/MOje/Projects/OliSmash/build/OliSmash-Core.js";
     paths["local_style"] = "file:///C:/Users/zezul/Dropbox/MOje/Projects/OliSmash/OliSmash-Style.css";
-    paths["test_core"] = "https://rawgit.com/Zezis/OliSmash/test/OliSmash-Core.js";
+    paths["test_core"] = "https://cdn.jsdelivr.net/gh/Zezis/OliSmash@test/build/OliSmash-Core.js";
     paths["test_style"] = "https://rawgit.com/Zezis/OliSmash/test/OliSmash-Style.css";
     paths["release_core"] = "https://rawgit.com/Zezis/OliSmash/release/OliSmash-Core.js";
     paths["release_style"] = "https://rawgit.com/Zezis/OliSmash/release/OliSmash-Style.css";
