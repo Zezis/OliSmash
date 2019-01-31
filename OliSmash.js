@@ -13,7 +13,7 @@ javascript:(
 		/*** Opacity *** 0-1*/
 		var opacity=1;
 		
-		/*** Width, Height ***/
+		/*** Width, Heigssht ***/
 		var width=350;
 		var height=250;
 		
