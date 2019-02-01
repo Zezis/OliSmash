@@ -106,7 +106,6 @@ var OliSmash = (function () {
         this.container.mouseout(function () { _this.hide(); });
     };
     OliSmash.prototype.hide = function () {
-        console.log("hiding");
         this.body.css("visibility", "hidden");
         this.header.css("visibility", "hidden");
         this.linkDiv.css("visibility", "hidden");

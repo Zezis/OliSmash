@@ -149,7 +149,7 @@ class OliSmash{
     }
 
     private hide(){
-        console.log("hiding");
+        //console.log("hiding");
         this.body.css("visibility","hidden");
         this.header.css("visibility","hidden");
         this.linkDiv.css("visibility","hidden");
