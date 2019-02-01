@@ -4,7 +4,7 @@ javascript:(
 		local - local files
 		test - Testing branch on bitbucket
 		release - release branch on bitbucket */
-		var version="local";
+		var version="test";
 		
 		/*** STEALT MODE ***
 		true - will show only on mouseover */

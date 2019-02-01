@@ -58,7 +58,7 @@ class TabManager{
         let content = $('<iframe class="tabcontent" src="'+src+'">');
         this.tabs.push(content);
         
-        let link = $(`<a href="#">${name}</a>`)
+        let link = $(`<a>${name}</a>`)
         link.click(()=>{
             this.tabsContainer.children(".tabcontent").hide();
             this.dropdown.children("button").text("TABS: "+name);

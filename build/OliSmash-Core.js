@@ -42,7 +42,7 @@ var TabManager = (function () {
         var _this = this;
         var content = $('<iframe class="tabcontent" src="' + src + '">');
         this.tabs.push(content);
-        var link = $("<a href=\"#\">" + name + "</a>");
+        var link = $("<a>" + name + "</a>");
         link.click(function () {
             _this.tabsContainer.children(".tabcontent").hide();
             _this.dropdown.children("button").text("TABS: " + name);

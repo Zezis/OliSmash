@@ -1,5 +1,5 @@
 javascript: (function () {
-    var version = "local";
+    var version = "test";
     var stealth = true;
     var opacity = 0.95;
     var width = 350;
