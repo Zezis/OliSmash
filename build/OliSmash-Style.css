@@ -25,8 +25,12 @@
 	width:350px;
 	height:250px;
     resize: both;
+    background-color: azure;
     overflow: auto;
-    
+}
+
+#smash_linkDiv {
+    background-color: aliceblue;
 }
 
 #smash_linkDiv button{
@@ -41,3 +45,34 @@
     display: none;
     border: none;
 }
+
+
+
+
+
+/*DROPDOWN*/
+#smash_div .smash-dropdown {
+    position: relative;
+    display: inline-block;
+  }
+
+#smash_div .smash-dropdown-content {
+    display: none;
+    position: absolute;
+    background-color: #f1f1f1;
+    min-width: 100px;
+    box-shadow: 0px 2px 4px 0px rgba(0,0,0,0.2);
+    z-index: 1;
+  }
+
+#smash_div .smash-dropdown-content a {
+    color: black;
+    padding: 3px;
+    text-decoration: none;
+    display: block;
+    border: 1px black solid;
+    border-top: none;
+    font-size: 9px;
+}
+
+#smash_div .smash-dropdown:hover .smash-dropdown-content {display: block;}

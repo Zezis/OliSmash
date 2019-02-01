@@ -29,18 +29,26 @@ var U = (function () {
 }());
 var TabManager = (function () {
     function TabManager(linkDiv, tabsContainer) {
+        this.tabs = [];
         this.linkDiv = linkDiv;
         this.tabsContainer = tabsContainer;
+        this.createDropdownMenu();
     }
+    TabManager.prototype.createDropdownMenu = function () {
+        this.dropdown = $("<div class=\"smash-dropdown\">\n            <button>TABS:</button>\n            <div class=\"smash-dropdown-content\">\n            </div>\n        </div>");
+        this.linkDiv.append(this.dropdown);
+    };
     TabManager.prototype.addIframeTab = function (name, src) {
         var _this = this;
-        var link = $('<button>' + name + '</button>');
         var content = $('<iframe class="tabcontent" src="' + src + '">');
+        this.tabs.push(content);
+        var link = $("<a href=\"#\">" + name + "</a>");
         link.click(function () {
             _this.tabsContainer.children(".tabcontent").hide();
+            _this.dropdown.children("button").text("TABS: " + name);
             content.show();
         });
-        this.linkDiv.append(link);
+        this.dropdown.children(".smash-dropdown-content").append(link);
         this.tabsContainer.append(content);
     };
     return TabManager;

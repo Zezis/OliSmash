@@ -33,20 +33,39 @@ class U{
 class TabManager{
     public linkDiv: JQuery;
     public tabsContainer:JQuery;
+    public dropdown:JQuery;
+    public tabs:JQuery[] = [];
+ 
     constructor(linkDiv: JQuery,tabsContainer:JQuery){
         this.linkDiv = linkDiv;
         this.tabsContainer = tabsContainer;
+        this.createDropdownMenu();
+    }
+
+    private createDropdownMenu(){
+       this.dropdown = $( 
+        `<div class="smash-dropdown">
+            <button>TABS:</button>
+            <div class="smash-dropdown-content">
+            </div>
+        </div>`);
+
+        this.linkDiv.append(this.dropdown);
     }
 
     public addIframeTab(name:string,src:string){
-        let link = $('<button>'+name+'</button>');
+       
         let content = $('<iframe class="tabcontent" src="'+src+'">');
+        this.tabs.push(content);
         
+        let link = $(`<a href="#">${name}</a>`)
         link.click(()=>{
             this.tabsContainer.children(".tabcontent").hide();
+            this.dropdown.children("button").text("TABS: "+name);
             content.show();
         });
-        this.linkDiv.append(link);
+
+        this.dropdown.children(".smash-dropdown-content").append(link); 
         this.tabsContainer.append(content);
     }
 }
