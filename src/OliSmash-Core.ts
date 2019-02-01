@@ -8,6 +8,9 @@ class U{
             pos4 = e.clientY;
             document.onmouseup = closeDragElement;
             document.onmousemove = elementDrag;
+            console.log(e.clientY);
+            console.log(container.offset().top);
+
         }
 
         var elementDrag = (e) => {
@@ -16,8 +19,9 @@ class U{
             pos2 = pos4 - e.clientY;
             pos3 = e.clientX;
             pos4 = e.clientY;
-            container.css("top",container.offset().top  - pos2 );
-            container.css("left",container.offset().left  - pos1 );
+
+            container.css("top",container.offset().top - $(document).scrollTop()  - pos2 );
+            container.css("left",container.offset().left - $(document).scrollLeft()  - pos1 );
         }
 
         function closeDragElement() {
@@ -117,6 +121,36 @@ class OliSmash{
         this.container.css("opacity",this.options.opacity);
         this.body.css("width",this.options.width);
         this.body.css("height",this.options.height);
+
+        this.setupKeyListener();
+    }
+
+
+    private setupKeyListener(){
+        $(document).keydown((e)=>{
+            if (e.altKey && e.which == 86) {
+                //console.log("vision");
+                this.show();
+            }
+        });
+        $(document).keyup((e)=>{
+            if (!e.altKey || e.which == 86) { 
+                //console.log("no vision");
+                this.hide();
+            }
+            if(e.altKey && e.which == 66){
+                //console.log("reset");
+                this.container.css({top:0, left: 0});
+            }
+            if(e.altKey && e.which == 67){
+                //console.log("close");
+                this.container.remove();
+            }
+        });
+
+        $(document).keypress((e)=>{
+            if (e.altKey && e.which == 66) console.log("Alt + B pressed");
+        });
     }
 
     private createBody(){

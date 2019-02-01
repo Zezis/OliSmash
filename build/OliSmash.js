@@ -1,7 +1,7 @@
 javascript: (function () {
     var version = "test";
     var stealth = true;
-    var opacity = 0.95;
+    var opacity = 0.80;
     var width = 350;
     var height = 250;
     var paths = [];

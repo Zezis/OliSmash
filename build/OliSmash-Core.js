@@ -9,6 +9,8 @@ var U = (function () {
             pos4 = e.clientY;
             document.onmouseup = closeDragElement;
             document.onmousemove = elementDrag;
+            console.log(e.clientY);
+            console.log(container.offset().top);
         };
         var elementDrag = function (e) {
             e = e || window.event;
@@ -16,8 +18,8 @@ var U = (function () {
             pos2 = pos4 - e.clientY;
             pos3 = e.clientX;
             pos4 = e.clientY;
-            container.css("top", container.offset().top - pos2);
-            container.css("left", container.offset().left - pos1);
+            container.css("top", container.offset().top - $(document).scrollTop() - pos2);
+            container.css("left", container.offset().left - $(document).scrollLeft() - pos1);
         };
         function closeDragElement() {
             document.onmouseup = null;
@@ -80,7 +82,31 @@ var OliSmash = (function () {
         this.container.css("opacity", this.options.opacity);
         this.body.css("width", this.options.width);
         this.body.css("height", this.options.height);
+        this.setupKeyListener();
     }
+    OliSmash.prototype.setupKeyListener = function () {
+        var _this = this;
+        $(document).keydown(function (e) {
+            if (e.altKey && e.which == 86) {
+                _this.show();
+            }
+        });
+        $(document).keyup(function (e) {
+            if (!e.altKey || e.which == 86) {
+                _this.hide();
+            }
+            if (e.altKey && e.which == 66) {
+                _this.container.css({ top: 0, left: 0 });
+            }
+            if (e.altKey && e.which == 67) {
+                _this.container.remove();
+            }
+        });
+        $(document).keypress(function (e) {
+            if (e.altKey && e.which == 66)
+                console.log("Alt + B pressed");
+        });
+    };
     OliSmash.prototype.createBody = function () {
         this.container = $('<div id="smash_div"></div>');
         this.container.hide();

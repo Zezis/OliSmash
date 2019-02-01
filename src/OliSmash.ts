@@ -11,7 +11,7 @@ javascript:(
 		var stealth=true;
 		
 		/*** Opacity *** 0-1*/
-		var opacity=0.95;
+		var opacity=0.80;
 		
 		/*** Width, Height ***/
 		var width=350;
